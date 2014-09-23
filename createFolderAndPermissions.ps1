@@ -10,12 +10,12 @@
 #	to a user(optional)
 #
 #	Mandatory parameters:
-#	FolderPath 
-#	Folder
+#	 FolderPath 
+#	 Folder
 #
 #	Optional parameters (in case you want to grant access to a user besides Domain Admins)
-# 	UserName
-#	Permissions
+# 	 UserName
+#	 Permissions
 #
 # 	Use Cases:
 #	1) Create Home Directories and grant the user access, as well as Domain Admins
