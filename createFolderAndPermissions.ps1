@@ -43,8 +43,16 @@ Param(
 # Variables
 $MyDomain = 'CPGNY'
 
+# The below code should only run when there is a new folder, otherwise it can 
+# change permissions on existing folders which may be undesirable
+if(Test-Path -path "$FolderPath\$Folder"){
+	write-host "You attempted to create and change permissions on an existing folder"
+	write-host "$FolderPath\$Folder already exists"
+	Exit
+}
+
 # Create a new folder under given path
-New-Item -Name $Folder -ItemType Directory -Path $FolderPath | Out-Null
+New-Item -Name $Folder -ItemType Directory -Path $FolderPath -ErrorAction Stop | Out-Null
 
 # Gather existing ACL
 $ACL = Get-Acl "$FolderPath\$Folder"
